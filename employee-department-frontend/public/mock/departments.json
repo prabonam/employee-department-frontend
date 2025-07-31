@@ -1,0 +1,69 @@
+﻿// public/mock/departments.json
+[
+  {
+    "id": 1,
+    "name": "IT",
+    "location": "Building A"
+  },
+  {
+    "id": 2,
+    "name": "HR",
+    "location": "Building B"
+  }
+]
+
+/**
+
+  2: Use Axios Mock Adapter (For Unit Testing or Development)
+Install:
+
+ 
+npm install axios-mock-adapter
+Create mock.js file:
+
+ 
+// src/mock.js
+import axios from "axios";
+import MockAdapter from "axios-mock-adapter";
+
+export default function setupMock() {
+  const mock = new MockAdapter(axios, { delayResponse: 500 });
+
+  mock.onGet("/api/employees").reply(200, [
+    {
+      id: 1,
+      name: "Jane Doe",
+      email: "jane@example.com",
+      designation: "Manager",
+      department: { id: 1, name: "HR" }
+    }
+  ]);
+
+  mock.onGet("/api/departments").reply(200, [
+    { id: 1, name: "IT", location: "Building A" },
+    { id: 2, name: "HR", location: "Building B" }
+  ]);
+}
+Call it from index.js:
+
+ 
+import setupMock from "./mock";
+setupMock();
+✅ Option 3: Use a Mock Server (Optional)
+You can also install a JSON server:
+
+ 
+npm install -g json-server
+Create db.json:
+
+ 
+{
+  "employees": [...],
+  "departments": [...]
+}
+Then run:
+
+ 
+json-server --watch db.json --port 8080
+
+  **/

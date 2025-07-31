@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "email": "john@example.com",
+    "designation": "Developer",
+    "department": {
+      "id": 1,
+      "name": "IT"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "email": "jane@example.com",
+    "designation": "Manager",
+    "department": {
+      "id": 2,
+      "name": "HR"
+    }
+  }
+]
